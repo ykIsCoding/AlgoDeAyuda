@@ -1,13 +1,14 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld />
+  <v-app class="w-100 h-screen pa-0 ma-0">
+    <v-main class="w-100 h-screen pa-0 ma-0">
+      <HomePage/>
     </v-main>
-
-    <AppFooter />
   </v-app>
 </template>
 
 <script setup>
+import HomePage from './pages/HomePage.vue';
+
   //
 </script>
+
