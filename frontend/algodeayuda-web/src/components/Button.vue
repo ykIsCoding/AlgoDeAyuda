@@ -1,5 +1,5 @@
 <template>
-    <v-btn :variant="outlined?'outlined':'elevated'"  :class="[pr-16,ps-16 ,!outlined && 'bg-primary']" rounded="sm" size="x-large" @click="clickEmit('click')">
+    <v-btn :variant="outlined?'outlined':'elevated'" max-width="20%" min-width="20%" :class="['pe-16','text-left','d-inline-flex justify-start','ps-2',!outlined && 'bg-primary']" rounded="sm" size="x-large" @click="clickEmit('click')">
             {{ label }}
     </v-btn>
 </template>

@@ -1,9 +1,19 @@
 <script setup>
 import Button from '@/components/Button.vue';
 import { useAppStore } from '@/state/appStore';
+import {revealText} from '@/utils/animation/textAnimations'
+import { onMounted } from 'vue'
+import {slideIn} from '@/utils/animation/pageAnimations.js'
+import {router} from '@/utils/routing/routeUtils.js'
 
 const appStore = useAppStore()
+onMounted(() => {
+  revealText('.revealText')
+})
 
+function handleNext(){
+  slideIn(()=>appStore.nextStage())
+}
 </script>
 
 <template>
@@ -13,20 +23,20 @@ const appStore = useAppStore()
         He ayudado 789 Gente con sus problemas de programacion
       </p>
     </div>
-    <div class="align-self-start flex">
-    <h1 class="font-weight-black text-uppercase text-secondary text-h2">Algo</h1>
-    <br/>
-    <h1 class="font-weight-black text-uppercase text-secondary text-h2">De</h1>
-    <br/>
-    <h1 class="font-weight-black text-uppercase text-secondary text-h2">Ayuda</h1>
-    <br>
-    <p class="text-left">
+    <div class="align-self-start d-flex flex-column h-75 justify-center">
+    <h1 class="revealText font-weight-black text-uppercase text-secondary text-h1">Algo</h1>
+    
+    <h1 class="revealText font-weight-black text-uppercase text-secondary text-h1">De</h1>
+    
+    <h1 class="revealText font-weight-black text-uppercase text-secondary text-h1">Ayuda</h1>
+    
+    <p class="text-left mt-5">
       Un assitante de Intelligencia Artificiales para aprender programacion
     </p>
   </div>
-  <div class="d-flex justify-end ga-4">
-    <Button outlined @click="null" label="Sobre Este"></Button>
-    <Button @click="appStore.nextStage()" label="Next"></Button>
+  <div class="d-flex justify-end ga-4 mb-10 align-center pt-2">
+    <Button outlined @click="()=>router.push('/about')" label="Sobre Este"></Button>
+    <Button @click="handleNext()" label="Next"></Button>
   </div>
   
 </div>

@@ -2,12 +2,11 @@
 import { ref, onMounted } from 'vue'
 import Section from '@/components/Section.vue';
 import StageOnePage from '@/pages/StageOnePage.vue'
-const count = ref(0)
+import PageFactory from '@/components/PageFactory.vue'
 
 
-function increment() {
-  count.value++
-}
+
+
 
 onMounted(() => {
   
@@ -16,6 +15,6 @@ onMounted(() => {
 
 <template>
   <Section>
-      <StageOnePage/>
+      <PageFactory/>
   </Section>
 </template>

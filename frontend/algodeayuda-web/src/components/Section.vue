@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted,defineProps } from 'vue'
-
+import {slideIn} from '@/utils/animation/pageAnimations.js'
 import { useAppStore } from '@/state/appStore';
 import SideBar from '@/components/SideBar.vue'
 const appStore = useAppStore()
@@ -20,42 +20,50 @@ onMounted(() => {
   
 })
 
-function showSideBar(){
+
+
+function onBeforeEnter(el) {
   
 }
+
+function onEnter(el, done) {
+  console.log('enter')
+}
+
+function onLeave(el, done) {
+  console.log('leave')
+}
+
 
 </script>
 
 <template>
      <div>
     <div class="d-inline-flex justify-start bg-surface-variant h-screen w-100">
+      
+      
+      
+      <side-bar/>
       <v-sheet
-        @click="showSideBar()"
-        style="background-color: #263342;"
-        max-width="4%"
-        width="4%"
-        class="pa-2 d-flex justify-center"
-      >
-      <v-icon icon="$menu"></v-icon>
-      </v-sheet>
-      <v-sheet
-        v-for="n in panels.filter((x,idx)=>x.completed==true && idx<=appStore.stage)"
+        v-for="n in panels.filter((x,idx)=>x.completed==true && idx<=appStore.getStage)"
         :style={backgroundColor:n.background}
+        :key="n"
         max-width="4%"
         width="4%"
-        class="pa-2"
+        class="pa-2 done"
       >
-       
+    
       </v-sheet>
-      <v-sheet class="pa-5" :style={backgroundColor:panels[0].background} width="84%">
+    
+      <v-sheet class="pa-10 mainDisplay" :style={backgroundColor:panels[0].background} width="84%">
         <slot></slot>
       </v-sheet>
       <v-sheet
-        v-for="n in panels.filter((x,idx)=>x.completed==false && idx>appStore.stage)"
+        v-for="n in panels.filter((x,idx)=>x.completed==false && idx>appStore.getStage)"
         :style={backgroundColor:n.background}
         max-width="4%"
         width="4%"
-        class="pa-2"
+        :class="['pa-2',(n.stage == appStore.getStage+1)?'slideIn':null]"
       >
         
       </v-sheet>
