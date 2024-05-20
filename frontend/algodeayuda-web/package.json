@@ -9,6 +9,7 @@
   "dependencies": {
     "@mdi/font": "7.0.96",
     "animejs": "^3.2.2",
+    "axios": "^1.7.0",
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "vue": "^3.4.0",

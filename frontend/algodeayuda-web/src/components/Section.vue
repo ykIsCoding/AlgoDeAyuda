@@ -11,9 +11,21 @@ const panels = [
     {stage:3,background:'#6986AC',completed:false},
 ]
 
+function reset(){
+  for(let i=0;i<panels.length;i++){
+    panels[i].completed = false
+  }
+}
 
 appStore.$subscribe((mutation, state) => {
-  panels[state.stage].completed = true
+  
+  if(state.resetState){
+    
+    reset()
+  }else{
+    panels[state.stage].completed = true
+  }
+  
 })
 
 onMounted(() => {
@@ -43,7 +55,8 @@ function onLeave(el, done) {
       
       
       
-      <side-bar/>
+        <side-bar/>
+      
       <v-sheet
         v-for="n in panels.filter((x,idx)=>x.completed==true && idx<=appStore.getStage)"
         :style={backgroundColor:n.background}
@@ -55,7 +68,7 @@ function onLeave(el, done) {
     
       </v-sheet>
     
-      <v-sheet class="pa-10 mainDisplay" :style={backgroundColor:panels[0].background} width="84%">
+      <v-sheet class="pa-10 mainDisplay" :style={backgroundColor:panels[0].background} width="88%">
         <slot></slot>
       </v-sheet>
       <v-sheet

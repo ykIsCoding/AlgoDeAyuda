@@ -1,0 +1,2 @@
+cGPTPrompContent = ''
+gemeniPromptContent = ''

@@ -19,7 +19,7 @@ function handleNext(){
 <template>
   <div class="d-flex flex-column h-100 w-100 justify-space-between">
     <div class="d-flex w-100 flex-row justify-end">
-      <p class="text-right">
+      <p class="text-right font-weight-bold text-h6">
         He ayudado 789 Gente con sus problemas de programacion
       </p>
     </div>
@@ -30,7 +30,7 @@ function handleNext(){
     
     <h1 class="revealText font-weight-black text-uppercase text-secondary text-h1">Ayuda</h1>
     
-    <p class="text-left mt-5">
+    <p class="text-left font-weight-bold mt-5 text-h6">
       Un assitante de Intelligencia Artificiales para aprender programacion
     </p>
   </div>

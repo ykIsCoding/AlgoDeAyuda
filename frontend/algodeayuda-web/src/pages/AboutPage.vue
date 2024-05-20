@@ -18,7 +18,7 @@ onMounted(() => {
     </div>
     <div class="align-self-start d-flex flex-column ga-5 flex-grow-1 justify-center w-100">
         <span class="revealText text-h2 font-weight-black text-uppercase text-secondary w-50 ">no soy el remplazo de desarolladores.</span>
-        <span class="revealText text-h2 font-weight-black text-uppercase text-secondary w-50">Solo una Herramienta</span>
+        <span class="revealText text-h2 font-weight-black text-uppercase text-primary w-50">Solo una Herramienta</span>
     </div>
     <div>
 
