@@ -2,12 +2,13 @@
 import Button from '@/components/Button.vue';
 import { useAppStore } from '@/state/appStore';
 import {revealText} from '@/utils/animation/textAnimations'
-import { onMounted,inject } from 'vue'
+import { onMounted,inject,ref } from 'vue'
 import {slideIn} from '@/utils/animation/pageAnimations.js'
 import { postPrompt } from '@/utils/service/AIService';
 
 const appStore = useAppStore()
 const {updateStatus} = inject('showToast')
+var loading = ref(false)
 
 onMounted(() => {
   revealText('.revealText')
@@ -21,7 +22,10 @@ function handleInput(e){
 
 
 function handleNext(){
+  loading.value = true
   appStore.query().then(x=>{
+    loading.value = false
+    
     if(x){
       slideIn(()=>appStore.nextStage())
     }else{
@@ -58,7 +62,7 @@ function handlePrevious(){
     <Button classstring="text-red-lighten-1 border-error" outlined @click="null" label="resetear todo"></Button>
     <div class="d-flex ga-4 justify-end flex-grow-1 align-end">
     <Button outlined @click="handlePrevious()" label="atrás"></Button>
-    <Button @click="handleNext()" label="próximo"></Button>
+    <Button :loading="loading" @click="handleNext()" label="próximo"></Button>
     </div>
   </div>
   

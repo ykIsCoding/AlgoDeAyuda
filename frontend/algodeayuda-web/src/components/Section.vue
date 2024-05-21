@@ -50,15 +50,15 @@ function onLeave(el, done) {
 </script>
 
 <template>
-     <div>
-    <div class="d-inline-flex justify-start bg-surface-variant h-screen w-100">
+     <div class="h-100">
+    <div class="d-inline-flex justify-start bg-surface-variant h-100 w-100">
       
       
       
         <side-bar/>
       
       <v-sheet
-        v-for="n in panels.filter((x,idx)=>x.completed==true && idx<=appStore.getStage)"
+        v-for="n in panels.filter((x,idx)=> idx<=appStore.getStage)"
         :style={backgroundColor:n.background}
         :key="n"
         max-width="4%"
@@ -72,7 +72,7 @@ function onLeave(el, done) {
         <slot></slot>
       </v-sheet>
       <v-sheet
-        v-for="n in panels.filter((x,idx)=>x.completed==false && idx>appStore.getStage)"
+        v-for="n in panels.filter((x,idx)=> idx>appStore.getStage)"
         :style={backgroundColor:n.background}
         max-width="4%"
         width="4%"

@@ -4,7 +4,8 @@ import { useAppStore } from '@/state/appStore';
 import {revealText} from '@/utils/animation/textAnimations'
 import { onMounted } from 'vue'
 import { slideIn } from '@/utils/animation/pageAnimations';
-
+import { formatResponse } from '@/utils/service/ResponseService';
+import ContentFactory from '@/components/ContentFactory.vue'
 const appStore = useAppStore()
 onMounted(() => {
   revealText('.revealText')
@@ -27,8 +28,12 @@ function handlePrevious(){
     <div class="align-self-start d-flex flex-column ga-5 flex-grow-1 justify-center w-100">
         
         <span class="text-h3 font-weight-black text-uppercase text-secondary w-50 revealText">Resulto</span>
-        <div>
-          {{appStore.getResponse}}
+        <div class="d-flex ga-5 flex-column mb-5">
+          <h6 class="revealText text-h4 rounded-sm font-weight-black text-uppercase text-primary w-50">Resumen</h6>
+          <v-banner class="bg-primary text-h6 text-justify"icon="mdi-summarize" :text="appStore.getResponse.summary??'NIL'" :stacked="false">
+          </v-banner>
+          
+          <ContentFactory :item="x" v-for="x in formatResponse(appStore.getResponse.content??[])"/>
         </div>
   </div>
   <div class="d-flex justify-space-between ga-4 mb-10 align-center pt-2">

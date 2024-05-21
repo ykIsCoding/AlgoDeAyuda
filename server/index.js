@@ -3,13 +3,12 @@ const express = require('express')
 const cors = require('cors')
 const app = express();
 const bodyParser = require('body-parser');
-const oAiRoutes = require('./routes/oAI')
+
 const gAiRoutes = require('./routes/gAI')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use('/oai',oAiRoutes)
 app.use('/gai',gAiRoutes)
 
 

@@ -16,7 +16,7 @@ function handleInput(e){
   appStore.$patch({
     problemContent:e.target.value
   })
-  console.log(appStore.problemContent)
+  
 }
 
 function handleNext(){
