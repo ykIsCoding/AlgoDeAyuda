@@ -4,6 +4,10 @@ import {slideIn} from '@/utils/animation/pageAnimations.js'
 import { useAppStore } from '@/state/appStore';
 import SideBar from '@/components/SideBar.vue'
 const appStore = useAppStore()
+var drawerOpen = ref(true)
+
+
+
 const panels = [
     {stage:0,background:'#3B4754',completed:false},
     {stage:1,background:'#495867',completed:false},
@@ -28,9 +32,7 @@ appStore.$subscribe((mutation, state) => {
   
 })
 
-onMounted(() => {
-  
-})
+
 
 
 
@@ -55,31 +57,34 @@ function onLeave(el, done) {
       
       
       
-        <side-bar/>
-      
+        <side-bar @folded="(val)=>{
+          drawerOpen=val}"/>
       <v-sheet
+          v-show="drawerOpen"
         v-for="n in panels.filter((x,idx)=> idx<=appStore.getStage)"
         :style={backgroundColor:n.background}
         :key="n"
         max-width="4%"
         width="4%"
-        class="pa-2 done"
+        class="pa-2 done h-100 d-none d-sm-flex"
       >
     
       </v-sheet>
     
-      <v-sheet class="pa-10 mainDisplay" :style={backgroundColor:panels[0].background} width="88%">
+      <v-sheet v-show="drawerOpen" class="pa-10 mainDisplay h-100 overflow-auto" :style={backgroundColor:panels[0].background} width="88%">
         <slot></slot>
       </v-sheet>
-      <v-sheet
+      
+      <v-sheet v-show="drawerOpen"
         v-for="n in panels.filter((x,idx)=> idx>appStore.getStage)"
         :style={backgroundColor:n.background}
         max-width="4%"
         width="4%"
-        :class="['pa-2',(n.stage == appStore.getStage+1)?'slideIn':null]"
+        :class="['pa-2 h-100 d-none d-sm-flex',(n.stage == appStore.getStage+1)?'slideIn':null]"
       >
         
       </v-sheet>
+    
     </div>
     </div>
 </template>

@@ -14,7 +14,8 @@ import { onMounted } from 'vue';
         @input="inputEmit('update:modelValue',value)"
         @blur="inputEmit('update:modelValue',value)"
         @click:clear="inputEmit('update:modelValue',value)"
-        
+        auto-grow
+        class="font-weight-medium"
         v-model="value"
           outlined
           rounded-sm

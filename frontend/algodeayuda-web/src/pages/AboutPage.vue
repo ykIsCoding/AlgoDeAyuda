@@ -17,8 +17,8 @@ onMounted(() => {
       <Button @click="router.push('/')" label="Volver"></Button>
     </div>
     <div class="align-self-start d-flex flex-column ga-5 flex-grow-1 justify-center w-100">
-        <span class="revealText text-h2 font-weight-black text-uppercase text-secondary w-50 ">no soy el remplazo de desarolladores.</span>
-        <span class="revealText text-h2 font-weight-black text-uppercase text-primary w-50">Solo una Herramienta</span>
+        <span class="text-md-h3 text-h5 font-weight-black text-uppercase text-secondary w-md-50 w-100 revealText">no soy el remplazo de desarolladores.</span>
+        <span class="text-md-h3 text-h5 text-primary font-weight-black text-uppercase w-md-50 w-100 revealText">Solo una Herramienta</span>
     </div>
     <div>
 

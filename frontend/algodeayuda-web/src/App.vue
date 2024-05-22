@@ -1,6 +1,6 @@
 <template>
-  <v-app class="w-screen h-100 pa-0 ma-0">
-    <v-main class="w-100 h-100 pa-0 ma-0">
+  <v-app class="w-screen h-100 overflow-auto pa-0 ma-0">
+    <v-main class="h-100 pa-0 ma-0">
       <RouterView />
     </v-main>
   </v-app>

@@ -2,12 +2,13 @@
 import Button from '@/components/Button.vue';
 import { useAppStore } from '@/state/appStore';
 import { onMounted } from 'vue'
-import { revealText } from '@/utils/animation/textAnimations';
+import { revealText ,fadeInText} from '@/utils/animation/textAnimations';
 import { router } from '@/utils/routing/routeUtils';
 
 const appStore = useAppStore()
 onMounted(() => {
   revealText('.revealText')
+  fadeInText('.fadeInText')
 })
 </script>
 

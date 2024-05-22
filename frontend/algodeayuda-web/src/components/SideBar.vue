@@ -1,5 +1,5 @@
 <template>
-       
+    <div class="h-100"> 
         <v-navigation-drawer
           class="border-0"
           style="background-color:#263342;"
@@ -7,6 +7,7 @@
           @click="()=>{
             
               drawerOpen=!drawerOpen
+              this.$emit('folded',drawerOpen)
               revealText('.revealText')
             
             }"
@@ -27,7 +28,26 @@
               Historia de preguntas
             </h3>
             <v-list v-show="!drawerOpen" color="transparent">
-              <v-list-item v-for="x in arr" @click="()=>router.push(`/history/${x.id}`)" class="bg-primary rounded-sm mt-2 mb-2" append-icon="mdi-delete" :title="`${x.question}`"/>
+              <v-list-item tag="div" :key="x.id" v-for="x in getAllFromLocalStorage()" class="bg-primary rounded-sm mt-2 mb-2 pa-0">
+                <v-row class="d-flex flex-row  justify-center align-center pa-2">
+                <v-col @click="()=>router.push(`/history/${x.id}`)" class="w-75">
+                  <p class="text-truncate">{{ x.title }}</p>
+                </v-col>
+                <v-col class="w-25 justify-center d-flex">
+                  <v-btn
+                  class="pa-0"
+                  variant="text"
+                  size="sm"
+                  @click="removeFromLocalStorage(x.id)"
+                  >
+                  <v-icon
+                  icon="mdi-delete"
+                  end
+                  ></v-icon>
+              </v-btn>
+            </v-col>
+              </v-row>
+              </v-list-item>
             </v-list>
           </div>
           
@@ -38,34 +58,26 @@
           </template>
         
         </v-navigation-drawer>
-        <v-main style="height: 400px"></v-main>
+        <v-main style=""></v-main>
       
-
+      </div>  
 </template>
 <script setup>
 import { revealText } from '@/utils/animation/textAnimations';
 import { ref, onMounted } from 'vue';
 import { router } from '@/utils/routing/routeUtils';
+import {clearLocalStorage,getAllFromLocalStorage,removeFromLocalStorage} from '@/utils/localstorage/localStorageUtils'
 defineProps({
-  open:Boolean
 })
-var arr = [
-  {
-    id:1,
-    question:'haah',
-    error:'',
-    response:''
-  },
-  {
-    id:2,
-    question:'haasssh',
-    error:'sssssss',
-    response:''
-  }
-]
+
+defineEmits(['folded'])
+
+onMounted(()=>{
+
+})
 var drawerOpen = ref(true)
 
 function clearAll(){
-  arr = []
+  clearLocalStorage()
 }
 </script>
