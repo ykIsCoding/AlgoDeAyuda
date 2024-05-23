@@ -18,11 +18,11 @@ app.get('/', function (req, res) {
   
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ("http://localhost:3000"||process.env.ALLOWED_URL),
   credentials: true,
   optionsSuccessStatus: 200,
   headers: {
-    "Access-Control-Allow-Origin": "http://localhost:3000",
+    "Access-Control-Allow-Origin": ("http://localhost:3000"||process.env.ALLOWED_URL),
     "Access-Control-Allow-Methods": "GET, HEAD, POST, PUT, DELETE, OPTIONS", 
     "Access-Control-Allow-Headers": "*", 
   },

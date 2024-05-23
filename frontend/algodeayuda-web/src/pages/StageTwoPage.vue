@@ -45,6 +45,7 @@ function handlePrevious(){
         
         <TextBox :initialVal="appStore.getProblemContent" @blur="handleInput" @input="handleInput" @click:clear="handleInput"
           />
+        
   </div>
   <div class="d-flex flex-column flex-md-row justify-space-between ga-4 mb-10 align-center pt-2">
     <Button classstring="text-red-lighten-1 border-error w-100 w-md-25" outlined @click="appStore.reset()" label="resetear todo"></Button>

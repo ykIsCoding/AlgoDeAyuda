@@ -1,5 +1,5 @@
 <template>
-    <div class="h-100"> 
+    <div class="h-screen"> 
         <v-navigation-drawer
           class="border-0"
           :width="350"
