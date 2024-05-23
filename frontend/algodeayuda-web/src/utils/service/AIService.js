@@ -1,12 +1,11 @@
-import 'dotenv/config'
 import axios from 'axios';
-
+console.log(process.env)
 async function postPrompt(content){
  
   
     const response =await axios({
         method: 'post',
-        url: `${process.env.BACKEND_ENDPOINT}/gai/chat`,
+        url: `${process.env.VUE_APP_BACKEND_ENDPOINT}/gai/chat`,
         data: content
       });
     return response.data??{}
