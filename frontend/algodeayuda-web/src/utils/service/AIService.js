@@ -1,4 +1,4 @@
-
+import 'dotenv/config'
 import axios from 'axios';
 
 async function postPrompt(content){
@@ -6,7 +6,7 @@ async function postPrompt(content){
   
     const response =await axios({
         method: 'post',
-        url: `${import.meta.env.BACKEND_ENDPOINT}/gai/chat`,
+        url: `${process.env.BACKEND_ENDPOINT}/gai/chat`,
         data: content
       });
     return response.data??{}
