@@ -1,8 +1,10 @@
 <template>
     <div class="text-center">
       <v-snackbar
+      
         v-model="status"
         vertical
+        location="center"
         color="red-lighten-1"
           elevation="24"
         >

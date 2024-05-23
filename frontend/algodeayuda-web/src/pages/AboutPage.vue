@@ -25,7 +25,7 @@ const questions = [
 </script>
 
 <template>
-    <div class="d-flex flex-column justify-center ma-5 ma-sm-15 ga-5">
+    <div class="d-flex flex-column justify-center ma-5 ma-sm-15 ga-10">
     <div class="d-flex flex-row justify-start">
       <Button @click="router.push('/')" label="Volver"></Button>
     </div>

@@ -6,7 +6,7 @@ async function postPrompt(content){
   
     const response =await axios({
         method: 'post',
-        url: `http://localhost:5000/gai/chat`,
+        url: `${import.meta.env.BACKEND_ENDPOINT}/gai/chat`,
         data: content
       });
     return response.data??{}
