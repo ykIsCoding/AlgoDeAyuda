@@ -2,7 +2,7 @@
 import {ref} from 'vue'
 var breaking = ref(false)
 const generateSectionContent = (im) =>{
-    
+    try{
     const linkRegExp = /.*\[(.+)\]\((.+)\).*/im
     const headingRegExp = /\<header\>(.+)(\<\/header\>)/im
     const subHeadingRegExp = /\<subheader\>(.+)(\<\/subheader\>)/im
@@ -51,6 +51,9 @@ const generateSectionContent = (im) =>{
             class:'fadeInText text-body-1 font-weight-bold text-primary w-100 w-md-75',
             content:trimmedItem
         }
+    }catch(e){
+        
+    }
         
 }
 
