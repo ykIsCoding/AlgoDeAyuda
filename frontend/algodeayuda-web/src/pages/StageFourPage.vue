@@ -6,6 +6,8 @@ import { onMounted } from 'vue'
 import { slideIn } from '@/utils/animation/pageAnimations';
 import { formatResponse } from '@/utils/service/ResponseService';
 import ContentFactory from '@/components/ContentFactory.vue'
+import {router} from '@/utils/routing/routeUtils.js'
+
 const appStore = useAppStore()
 onMounted(() => {
   revealText('.revealText')
@@ -28,7 +30,7 @@ function handlePrevious(){
     
     <div class="align-self-start d-flex flex-column ga-5 flex-grow-1 justify-center w-100">
         
-        <span class="text-md-h3 text-h4 font-weight-black text-uppercase text-secondary w-md-50 w-100 revealText">Resulto</span>
+        <span class="text-md-h3 text-h4 font-weight-black text-uppercase text-secondary w-md-50 w-100 revealText">{{'Resulto'.toUpperCase()}}</span>
         <div class="d-flex ga-5 flex-column mb-5">
           <h6 class="revealText text-md-h4 text-h6 rounded-sm font-weight-black text-uppercase text-primary w-100 w-md-50">Resumen</h6>
           <v-banner class="bg-primary text-md-h6 text-body-1 text-justify" :icon="null" :text="appStore.getResponse.summary??'NIL'" :stacked="false">

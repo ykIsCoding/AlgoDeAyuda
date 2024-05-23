@@ -55,8 +55,20 @@ function getAllFromLocalStorage(){
     return mainObj.history 
 }
 
+function getObjFromLocalStorageById(id){
+    let mainObj = localStorage.getItem(keyName)
+    
+    if(!mainObj){
+        mainObj = defaultObj
+    }else{
+        mainObj = JSON.parse(mainObj)
+    }
+    let item = mainObj.history.find(x=>x.id==id)
+    return item??null
+}
+
 function clearLocalStorage(){
     localStorage.removeItem(keyName)
 }
 
-export {createObj,addToLocalStorage,clearLocalStorage,getAllFromLocalStorage,removeFromLocalStorage}
+export {createObj,addToLocalStorage,clearLocalStorage,getAllFromLocalStorage,removeFromLocalStorage,getObjFromLocalStorageById}

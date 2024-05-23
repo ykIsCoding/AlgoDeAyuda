@@ -8,7 +8,7 @@ import { createRouter,createMemoryHistory } from 'vue-router'
 const routes = [
   { path: '/', component: HomePage },
   { path: '/about', component: AboutPage },
-  { path: '/history/:id', component: ResponsePage },
+  { path: '/history/:id', component: ResponsePage, name:'history' },
   { path: '/:pathMatch(.*)*', component: NotFoundPage }
 ]
 
@@ -17,5 +17,6 @@ const router = createRouter({
   routes,
 })
 
-export {router}
+
+export { router}
 

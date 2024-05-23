@@ -2,6 +2,7 @@
     <div class="h-100"> 
         <v-navigation-drawer
           class="border-0"
+          :width="350"
           style="background-color:#263342;"
           :rail="drawerOpen"
           @click="()=>{
@@ -28,16 +29,15 @@
               Historia de preguntas
             </h3>
             <v-list v-show="!drawerOpen" color="transparent">
-              <v-list-item tag="div" :key="x.id" v-for="x in getAllFromLocalStorage()" class="bg-primary rounded-sm mt-2 mb-2 pa-0">
-                <v-row class="d-flex flex-row  justify-center align-center pa-2">
-                <v-col @click="()=>router.push(`/history/${x.id}`)" class="w-75">
-                  <p class="text-truncate">{{ x.title }}</p>
-                </v-col>
-                <v-col class="w-25 justify-center d-flex">
+              <v-list-item
+              
+               tag="div" :key="x.id" v-for="x in getAllFromLocalStorage()" class="bg-primary rounded-sm mt-2 mb-2 pa-0">
+                <v-row class="d-flex flex-row  justify-space-between align-center ma-2">
+                  <p @click="openResponsePage(x.id)" class="text-truncate w-75">{{ x.title }}</p>
                   <v-btn
-                  class="pa-0"
+                  class="pa-0 w-25"
                   variant="text"
-                  size="sm"
+                  size="md"
                   @click="removeFromLocalStorage(x.id)"
                   >
                   <v-icon
@@ -45,7 +45,7 @@
                   end
                   ></v-icon>
               </v-btn>
-            </v-col>
+           
               </v-row>
               </v-list-item>
             </v-list>
@@ -53,7 +53,7 @@
           
           <template  v-slot:append>
             <div v-show="!drawerOpen" class="pa-4">
-              <Button classstring="bg-red-lighten-1 border-error" block="true" @click="clearAll()" label="Borrar Todo"></Button>
+              <Button classstring="bg-red-lighten-1 border-error w-100" block="true" @click="clearAll()" label="Borrar Todo"></Button>
             </div>
           </template>
         
@@ -79,5 +79,10 @@ var drawerOpen = ref(true)
 
 function clearAll(){
   clearLocalStorage()
+}
+
+function openResponsePage(id){
+  
+  router.push({ name: 'history', params: { id: id }})
 }
 </script>

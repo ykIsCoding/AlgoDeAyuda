@@ -36,9 +36,9 @@ function handlePrevious(){
     
     <div class="align-self-start d-flex flex-column ga-5 flex-grow-1 justify-center w-100">
         <div class="d-flex flex-column flex-md-row justify-space-between">
-          <span class="text-md-h3 text-h5 font-weight-black text-uppercase text-secondary w-md-50 w-100 revealText">escribe tu Pregunta o Problema</span>
+          <span class="text-md-h3 text-h5 font-weight-black text-uppercase text-secondary w-md-50 w-100 revealText">ESCRIBE TU PROBLEMA O PREGUNTA</span>
           <div class="d-flex flex-column justify-end">
-            <span class="text-md-h6 text-subtitle-2 text-left text-md-right font-weight-bold fadeInText">Este seccion es necesario</span>
+            <span class="text-md-h6 text-subtitle-2 text-left text-md-right font-weight-medium fadeInText">Este seccion es necesario</span>
           </div>
           
         </div>

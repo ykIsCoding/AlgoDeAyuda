@@ -53,10 +53,8 @@ function onLeave(el, done) {
 
 <template>
      <div class="h-100">
-    <div class="d-inline-flex justify-start bg-surface-variant h-100 w-100">
-      
-      
-      
+    <div class="d-inline-flex justify-start bg-primary h-100 w-100">
+    
         <side-bar @folded="(val)=>{
           drawerOpen=val}"/>
       <v-sheet
