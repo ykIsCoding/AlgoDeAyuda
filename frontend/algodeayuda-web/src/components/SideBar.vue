@@ -8,7 +8,7 @@
           @click="()=>{
             
               drawerOpen=!drawerOpen
-              this.$emit('folded',drawerOpen)
+              $emit('folded',drawerOpen)
               revealText('.revealText')
             
             }"
