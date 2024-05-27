@@ -16,7 +16,8 @@ import showToastObject from './utils/service/ToastService.js'
 import { createApp,ref } from 'vue'
 import { createPinia } from 'pinia'
 
-
+import { inject } from '@vercel/analytics';
+inject()
 
 
 const pinia = createPinia()
