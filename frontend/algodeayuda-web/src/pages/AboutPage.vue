@@ -15,7 +15,7 @@ onMounted(() => {
 const questions = [
   {
     title:'Cuales los datos desde usarios que recogido por la aplicaion?',
-    answer:'Solo el recuento de usarios y cualquier informacion enviado por el usario'
+    answer:'Solo datos de Vercel web analytics y cualquier informacion enviado por el usario'
   },
   {
     title:'Cuales los modelos de Intelligencia Artificiales en esta aplicacion?',
