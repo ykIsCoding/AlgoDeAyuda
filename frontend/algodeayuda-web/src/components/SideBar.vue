@@ -72,9 +72,6 @@ defineProps({
 
 defineEmits(['folded'])
 
-onMounted(()=>{
-
-})
 var drawerOpen = ref(true)
 
 function clearAll(){
