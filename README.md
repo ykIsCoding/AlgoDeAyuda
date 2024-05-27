@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/ChatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 A web application that makes use of Gemeni and OpenAI API to help learn programming and computer science. The application redirects users to resources to aid in their learning. This web app is made for the Spanish-speaking community.
-
+![](https://github.com/ykIsCoding/AlgoDeAyuda/blob/main/frontend/algodeayuda-web/src/assets/Algo%20De%20Ayuda.gif)
 
 
 
